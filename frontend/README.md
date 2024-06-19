@@ -32,3 +32,5 @@ The application uses the following environment variables:
 `IMAGE_BASE_URL`: `http://image.tmdb.org/t/p/w185`.
 
 These variables are stored in a `.env` file at the root of the project. Make sure to create your own `.env` file and set these variables before running the project.
+
+If you want to use the server from the `backend` directory, set `API_BASE_URL` to the instance where the backend is running.
