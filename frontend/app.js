@@ -1,15 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-require('dotenv').config();
-var indexRouter = require('./routes/index');
-const StatusCodes = require('http-status-codes').StatusCodes;
+import 'dotenv/config';
+import express from 'express';
+import { StatusCodes } from 'http-status-codes';
+import helmet from 'helmet';
+import indexRouter from './routes/index.js';
+import createError from 'http-errors';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 
+const __dirname = path.resolve();
 
-var app = express();
-const helmet = require('helmet');
+const app = express();
+
 app.use(helmet());
 app.use(
   helmet.contentSecurityPolicy({
@@ -45,4 +47,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

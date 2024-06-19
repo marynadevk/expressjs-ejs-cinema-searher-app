@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-const request = require('request');
+import express from 'express';
+import request from 'request';
+
+const router = express.Router();
 
 const nowPlayingUrl = `${process.env.API_BASE_URL}/most_popular?api_key=${process.env.API_KEY}`;
 const imageBaseUrl = process.env.IMAGE_BASE_URL;
@@ -12,7 +13,6 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res, next) => {
   request.get(nowPlayingUrl, (error, response, movieData) => {
-    console.log(movieData);
     const parsedData = JSON.parse(movieData);
     res.render('index', { parsedData: parsedData.results });
   })
@@ -47,5 +47,4 @@ router.get('/movie/:id', (req, res, next) => {
     })
   })
 
-
-module.exports = router;
+export default router;
