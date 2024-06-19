@@ -1,0 +1,73 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #d62828;
+}
+
+.btn-primary {
+  background-color: #fb5607;
+  border-color: #fb5607;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #e76f51;
+  border-color: #fb5607;
+}
+
+.navbar-right {
+  margin-right: 10px;
+}
+
+.poster img {
+  width: 90%;
+  text-align: center;
+  margin: 10px 5% 10px;
+}
+
+#search-form input {
+  margin: 8px 0px;
+  padding: 5px;
+}
+
+.form-group select {
+  min-width: 150px;
+}
+
+.single-movie-title, .overview-header {
+  font-family: 'Metamorphous', cursive;
+}
+
+.overview-header{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.single-movie-overview {
+  font-family: 'Metamorphous', cursive;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.modal {
+  font-family: 'Metamorphous', cursive;
+  font-size: 18px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
