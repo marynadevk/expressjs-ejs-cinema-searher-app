@@ -41,13 +41,6 @@
 				<p>Budget: <%= parsedData.budget %>$</p>
 				<p>Revenue: <%= parsedData.revenue %>$</p>
 				<p>Release date: <%= parsedData.release_date%></p>
-        <p>Genres:
-          <ul>
-            <% parsedData.genres.forEach((genre) => { %>
-              <li><%= genre.name %></li>
-            <% }) %>
-          </ul>
-        </p> 
         <p>Produced by:
           <ul>
             <% parsedData.production_companies.forEach((company) => { %>

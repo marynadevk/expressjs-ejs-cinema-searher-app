@@ -11,12 +11,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-        <%
-          function displayResultsCount(data) {
-          return data.length >= 20 ? 'more than 20' : data.length;
-        }
-        %>
-        <h1>Results: <%= displayResultsCount(parsedData) %> </h1>
+        <h1>Results</h1>
 			</div>
 			<div class="col-sm-12">
 				<% parsedData.forEach((movie) => { %>
@@ -26,7 +21,6 @@
             </a>
           </div>
         <% }) %>
-				
 			</div>
 		</div>
 	</div>
