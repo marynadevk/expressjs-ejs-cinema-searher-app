@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Movie App </title>
+	<% include head %>
+</head>
+<body>
+
+	<% include navbar %>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+        <%
+          function displayResultsCount(data) {
+          return data.length >= 20 ? 'more than 20' : data.length;
+        }
+        %>
+        <h1>Results: <%= displayResultsCount(parsedData) %> </h1>
+			</div>
+			<div class="col-sm-12">
+				<% parsedData.forEach((movie) => { %>
+          <div class="col-md-3 col-sm-4 poster">
+            <a href="/movie/<%= movie.id %>">
+              <img src="<%= imageBaseUrl + movie.poster_path %>" />
+            </a>
+          </div>
+        <% }) %>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
