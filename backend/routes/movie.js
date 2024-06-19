@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import movieDetails from '../data/movieDetails.js';
 
-const movieDetails = require('../data/movieDetails');
+var router = express.Router();
 
 function requireJSON(req, res, next) {
   if (!req.is('application/json')) {
@@ -59,4 +59,4 @@ router.delete('/:movieId/rating', requireJSON, (req, res, next) => {
   res.json({ msg:"Rating deleted!" })
 })
 
-module.exports = router;
+export default router;

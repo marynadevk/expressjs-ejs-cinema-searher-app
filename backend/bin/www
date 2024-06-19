@@ -1,10 +1,9 @@
-var app = require('../app');
-var debug = require('debug')('movieapi:server');
-var http = require('http');
+import app from '../app.js';
+import http from 'http';
+import debug from 'debug';
 
 var port = normalizePort(process.env.PORT);
 app.set('port', port);
-
 
 var server = http.createServer(app);
 

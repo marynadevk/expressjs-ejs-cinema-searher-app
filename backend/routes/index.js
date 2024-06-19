@@ -1,11 +1,7 @@
-var express = require('express');
+import express from 'express';
+import movies from '../data/movies.js';
+
 var router = express.Router();
-
-const movies = require('../data/movies');
-
-router.get('/', function(req, res, next) {
-
-});
 
 router.get('/most_popular', (req, res, next) => {
   let page = req.query.page;
@@ -19,4 +15,4 @@ router.get('/most_popular', (req, res, next) => {
   res.json({ page, results });
 })
 
-module.exports = router;
+export default router;

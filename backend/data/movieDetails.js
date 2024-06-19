@@ -576,5 +576,5 @@ const movieDetails = [
     vote_count:3396
   }
 ]
-  module.exports = movieDetails;
   
+export default movieDetails;

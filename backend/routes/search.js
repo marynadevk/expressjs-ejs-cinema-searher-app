@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import movies from '../data/movies.js';
+import people from '../data/people.js';
 
-const movies = require('../data/movies');
-const people = require('../data/people');
+var router = express.Router();
 
 function queryRequired(req, res, next) {
   const searchTerm = req.query.query;
@@ -33,4 +33,4 @@ router.get('/person', (req, res, next) => {
   res.json({results})
 })
 
-module.exports = router;
+export default router;
