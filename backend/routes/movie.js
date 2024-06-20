@@ -1,7 +1,7 @@
 import express from 'express';
-import movieDetails from '../data/movieDetails.js';
+import { CollectionsNames, getCollection } from '../dataBaseConfig.js';
 
-var router = express.Router();
+const router = express.Router();
 
 function requireJSON(req, res, next) {
   if (!req.is('application/json')) {
@@ -18,6 +18,7 @@ router.param(('movieId'), (req, res, next) => {
 router.get('/top_rated', (req, res, next) => {
   let page = req.query.page;
   if (!page) {page = 1;}
+  const movieDetails = getCollection(CollectionsNames.MOVIE_DETAILS);
   const results = movieDetails.sort((a, b) => {
     return b.vote_average - a.vote_average
   });
@@ -27,6 +28,7 @@ router.get('/top_rated', (req, res, next) => {
 
 router.get('/:movieId', (req, res, next) => {
   const movieId = req.params.movieId;
+  const movieDetails = getCollection(CollectionsNames.MOVIE_DETAILS);
   const results = movieDetails.find((movie) => {
     return movie.id === movieId;
   })

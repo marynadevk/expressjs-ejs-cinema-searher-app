@@ -6,11 +6,11 @@ import indexRouter from './routes/index.js';
 import movieRouter from './routes/movie.js';
 import searchRouter from './routes/search.js';
 import createError from 'http-errors';
-import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import { connectToDb, fillDatabase } from './dataBaseConfig.js';
 
-var app = express();
+const app = express();
 app.use(helmet());
 
 app.use((req, res, next) => {
@@ -43,5 +43,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || StatusCodes.INTERNAL_SERVER_ERROR);
   res.render('error');
 });
+
+const connectToDataBase = async () => {
+  try {
+  await connectToDb();
+  await fillDatabase();
+} catch(err) {
+  console.log('Error on filling database: ', err);
+}
+};
+connectToDataBase();
 
 export default app;

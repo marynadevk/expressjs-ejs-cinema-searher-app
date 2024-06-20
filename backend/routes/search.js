@@ -1,8 +1,7 @@
 import express from 'express';
-import movies from '../data/movies.js';
-import people from '../data/people.js';
+import { CollectionsNames, getCollection } from '../dataBaseConfig.js';
 
-var router = express.Router();
+const router = express.Router();
 
 function queryRequired(req, res, next) {
   const searchTerm = req.query.query;
@@ -17,6 +16,7 @@ router.use(queryRequired);
 
 router.get('/movie', (req, res, next) => {
   const searchTerm = req.query.query;
+  const movies = getCollection(CollectionsNames.MOVIES);
   const results = movies.filter((movie) => {
     let found = movie.overview.includes(searchTerm) || movie.title.includes(searchTerm);
     return found;
@@ -26,6 +26,7 @@ router.get('/movie', (req, res, next) => {
 
 router.get('/person', (req, res, next) => {
   const searchTerm = req.query.query;
+  const people = getCollection(CollectionsNames.PEOPLE);
   const results = people.filter((person) => {
     let found = person.name.includes(searchTerm);
     return found;

@@ -1,13 +1,15 @@
 import express from 'express';
-import movies from '../data/movies.js';
+import { getCollection, CollectionsNames } from '../dataBaseConfig.js';
 
-var router = express.Router();
+const router = express.Router();
 
 router.get('/most_popular', (req, res, next) => {
   let page = req.query.page;
   if (page === undefined) {
     page = 1;
   }
+
+  const movies = getCollection(CollectionsNames.MOVIES)
   let results = movies.filter(movie => movie.most_popular);
   const indexToStart = (page - 1) * 20;
 
